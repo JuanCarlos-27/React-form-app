@@ -1,9 +1,9 @@
-import './App.css';
+import ProgressBar from './components/ProgressBar';
 
 function App () {
   return (
     <>
-      <h1>Hola mundo</h1>
+      <ProgressBar />
     </>
   );
 }
