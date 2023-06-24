@@ -1,0 +1,18 @@
+@use "../variables" as var;
+
+@mixin input() {
+  input {
+    border: none;
+    outline: none;
+    padding: 0.5rem 0.2rem;
+    background-color: transparent;
+    border-bottom: 2px solid #aaa;
+    font-family: var.$main-font;
+    font-size: 1.2rem;
+    color: #000;
+    transition: border-color 0.2s ease-in-out;
+    &:focus {
+      border-color: var.$focus-color;
+    }
+  }
+}

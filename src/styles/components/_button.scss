@@ -1,0 +1,29 @@
+@use "../variables" as var;
+
+@mixin button {
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+
+    &:first-child{
+        background-color: var.$btn-back-bg;
+        &:hover{
+            background-color: var.$btn-back-hover-bg;
+        }
+    }
+    &:last-child {
+      background-color: var.$btn-bg-color;
+      &:hover{
+          background-color: var.$btn-hover-bg;
+      }
+    }
+
+  }
+}

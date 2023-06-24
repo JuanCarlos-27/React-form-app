@@ -1,0 +1,24 @@
+@use "../variables" as var;
+@use "./input" as i;
+@use "./button" as b;
+
+.card-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
+  gap: 40px;
+  border-radius: 1rem;
+  padding: 2rem;
+  background-color: var.$form-card-bg-color;
+
+  .form-group {
+    display: flex;
+    gap: 1rem;
+    @include i.input();
+  }
+  .form-buttons-group {
+    display: flex;
+    gap: 1rem;
+    @include b.button();
+  }
+}
