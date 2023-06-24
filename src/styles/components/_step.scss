@@ -1,26 +1,40 @@
-.step-wrapper{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+@use "../variables" as var;
 
-    .step{
-        background-color: #0084ff;
-        width: 50px;
-        height: 50px;
-        border-radius: 9999px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        line-height: 1.1;
-        position: relative;
-        &::before{
-            content: "";
-            position: absolute;
-            width: 100px;
-            height: 2px;
-            background-color: #0084ff;
-            top: 50%;
-            z-index: -2;
-        }
+.step-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+
+  .step {
+    background-color: var.$step-background-color;
+    width: 50px;
+    height: 50px;
+    border-radius: 9999px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.1;
+    position: relative;
+    border: 5px solid var.$step-background-color;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 89px;
+      height: 3px;
+      background-color: var.$step-background-color;
+      top: 50%;
+      z-index: -2;
     }
+  }
+  .current-step {
+    background-color: var.$current-step-background-color;
+  }
+}
+
+.step-wrapper-blocked {
+  opacity: 0.7;
+  user-select: none;
+  cursor: not-allowed;
 }
