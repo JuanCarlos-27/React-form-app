@@ -1,21 +1,25 @@
-import { useContext } from 'react';
 import ProgressBar from './components/ProgressBar';
-import { FormContext } from './context/form';
 import CardForm from './components/CardForm';
+import useForm from './hooks/useForm';
 
 function App () {
-  const { formStatus } = useContext(FormContext);
+  const { formState } = useForm();
   return (
     <>
       <main>
         <ProgressBar />
-        {formStatus.map((item) => (
-          <CardForm
-            key={item.stepName}
-            fields={item.fields}
-            label={item.cardTitle}
-          />
-        ))}
+        {formState.map((item) => {
+          return (
+            item.isCurrentStep && (
+              <CardForm
+                key={item.stepName}
+                stepName={item.stepName}
+                fields={item.fields}
+                label={item.cardTitle}
+              />
+            )
+          );
+        })}
       </main>
     </>
   );

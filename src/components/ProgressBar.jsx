@@ -1,12 +1,11 @@
-import { useContext } from 'react';
 import Step from './Step';
-import { FormContext } from '../context/form';
+import useForm from '../hooks/useForm';
 
 export default function ProgressBar () {
-  const { formStatus } = useContext(FormContext);
+  const { formState } = useForm();
   return (
     <section className='progress-bar'>
-      {formStatus.map((item) => (
+      {formState.map((item) => (
         <Step
           key={item.stepName}
           stepLabel={item.stepName}

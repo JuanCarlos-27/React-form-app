@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useReducer } from 'react';
 
 export const FormContext = createContext();
 
@@ -27,7 +27,7 @@ const INITIAL_STATE = [
     stepName: 'Email',
     cardTitle: 'Ingresa tu correo electronico',
     isCurrentStep: false,
-    isBlocked: false,
+    isBlocked: true,
     fields: [
       {
         name: 'email',
@@ -76,7 +76,7 @@ const INITIAL_STATE = [
         value: ''
       },
       {
-        name: 'password',
+        name: 'confirmPassword',
         placeholder: 'Confirmación constraseña',
         type: 'password',
         value: ''
@@ -85,11 +85,18 @@ const INITIAL_STATE = [
   }
 ];
 
+const formReducer = (state, action) => {
+  // if (action.type === 'NEXT_STEP') {
+
+  // }
+  return state;
+};
+
 export function FormProvider ({ children }) {
-  const [formStatus, setFormStatus] = useState(INITIAL_STATE);
+  const [formState, dispatch] = useReducer(formReducer, INITIAL_STATE);
 
   return (
-    <FormContext.Provider value={{ formStatus, setFormStatus }}>
+    <FormContext.Provider value={{ formState, dispatch }}>
       {children}
     </FormContext.Provider>
   );
