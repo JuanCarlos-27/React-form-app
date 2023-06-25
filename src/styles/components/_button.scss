@@ -1,6 +1,6 @@
 @use "../variables" as var;
 
-@mixin button {
+@mixin button($bg-back, $bg-next) {
   button {
     display: flex;
     align-items: center;
@@ -13,15 +13,15 @@
     transition: background-color 0.2s ease-in-out;
 
     &:first-child{
-        background-color: var.$btn-back-bg;
+        background-color: $bg-back;
         &:hover{
-            background-color: var.$btn-back-hover-bg;
+            background-color: darken($bg-back, 10%);
         }
     }
     &:last-child {
-      background-color: var.$btn-bg-color;
+      background-color: $bg-next;
       &:hover{
-          background-color: var.$btn-hover-bg;
+          background-color: darken($bg-next, 10%);
       }
     }
 

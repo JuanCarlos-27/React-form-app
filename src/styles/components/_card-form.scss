@@ -5,6 +5,7 @@
 .card-form {
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin-top: 3rem;
   gap: 40px;
   border-radius: 1rem;
@@ -19,6 +20,6 @@
   .form-buttons-group {
     display: flex;
     gap: 1rem;
-    @include b.button();
+    @include b.button(var.$btn-back-bg, var.$btn-bg-color);
   }
 }

@@ -1,9 +1,13 @@
 import ProgressBar from './components/ProgressBar';
 import CardForm from './components/CardForm';
 import useForm from './hooks/useForm';
+import FormModal from './components/FormModal';
 
 function App () {
-  const { formState } = useForm();
+  const { formState, allFieldsChecked } = useForm();
+
+  const formIsReady = allFieldsChecked();
+
   return (
     <>
       <main>
@@ -21,6 +25,8 @@ function App () {
           );
         })}
       </main>
+
+      {formIsReady && <FormModal />}
     </>
   );
 }
