@@ -17,6 +17,19 @@
     flex-wrap: wrap;
     gap: 1rem;
     @include i.input();
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      word-wrap: break-word;
+      max-width: 270px;
+
+
+      .validation-error {
+        color: var.$validation-error-color;
+        font-weight: 500;
+      }
+    }
   }
   .form-buttons-group {
     display: flex;
@@ -26,8 +39,10 @@
   }
 }
 
-@media only screen and (max-width: 597px){
-  .form-group,.form-buttons-group, .card-form {
+@media only screen and (max-width: 597px) {
+  .form-group,
+  .form-buttons-group,
+  .card-form {
     justify-content: center;
     text-align: center;
   }
