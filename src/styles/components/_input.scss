@@ -1,7 +1,8 @@
 @use "../variables" as var;
 
 @mixin input() {
-  input, select {
+  input,
+  select {
     border: none;
     outline: none;
     padding: 0.5rem 0.2rem;
@@ -15,6 +16,5 @@
       border-color: var.$focus-color;
     }
   }
-  
 
 }

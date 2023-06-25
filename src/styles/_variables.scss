@@ -1,4 +1,12 @@
-$main-font:  Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+$main-font: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+$body-bg-color: linear-gradient(
+  to bottom,
+  #b8dbdd,
+  #80cade,
+  #41b6e6,
+  #009dee,
+  #2f80ed
+);
 $step-background-color: #0084ff;
 $current-step-background-color: #fff;
 $form-card-bg-color: #ffffffde;

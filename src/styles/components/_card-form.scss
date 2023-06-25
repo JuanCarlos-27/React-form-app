@@ -14,12 +14,21 @@
 
   .form-group {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
     @include i.input();
   }
   .form-buttons-group {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
     @include b.button(var.$btn-back-bg, var.$btn-bg-color);
+  }
+}
+
+@media only screen and (max-width: 597px){
+  .form-group,.form-buttons-group, .card-form {
+    justify-content: center;
+    text-align: center;
   }
 }
