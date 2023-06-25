@@ -11,6 +11,7 @@ export default function ProgressBar () {
           stepLabel={item.stepName}
           isCurrentStep={item.isCurrentStep}
           isBlockedStep={item.isBlocked}
+          isChecked={item.isChecked}
         />
       ))}
     </section>

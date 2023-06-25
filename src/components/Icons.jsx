@@ -1,4 +1,4 @@
-export function CheckIcon ({ width = 40, height = 40 }) {
+export function CheckIcon ({ width = 40, height = 40, color = '#fff' }) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -6,7 +6,7 @@ export function CheckIcon ({ width = 40, height = 40 }) {
       height={height}
       viewBox='0 0 24 24'
       strokeWidth='2.5'
-      stroke='#fff'
+      stroke={color}
       fill='none'
       strokeLinecap='round'
       strokeLinejoin='round'
