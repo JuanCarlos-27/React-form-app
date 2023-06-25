@@ -2,11 +2,25 @@ import ProgressBar from './components/ProgressBar';
 import CardForm from './components/CardForm';
 import useForm from './hooks/useForm';
 import FormModal from './components/FormModal';
+import { useEffect, useState } from 'react';
+import { Toaster } from 'sonner';
+import { ACTION_TYPES } from './utils';
 
 function App () {
-  const { formState, allFieldsChecked, getResumeInformation } = useForm();
+  const { formState, dispatch, allFieldsChecked, getResumeInformation } = useForm();
 
-  const formIsReady = allFieldsChecked();
+  const [formIsReady, setFormIsReady] = useState(() => allFieldsChecked());
+
+  useEffect(() => {
+    const isAllChecked = allFieldsChecked();
+
+    setFormIsReady(isAllChecked);
+  }, [allFieldsChecked]);
+
+  const onCancel = () => {
+    setFormIsReady(false);
+    dispatch({ type: ACTION_TYPES.UNCHECK_FIELDS });
+  };
 
   return (
     <>
@@ -26,7 +40,10 @@ function App () {
         })}
       </main>
 
-      {formIsReady && <FormModal dataResume={getResumeInformation()} />}
+      {formIsReady && (
+        <FormModal dataResume={getResumeInformation()} onCancel={onCancel} />
+      )}
+      <Toaster position='top-right' expand richColors />
     </>
   );
 }

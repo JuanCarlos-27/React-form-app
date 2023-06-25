@@ -1,4 +1,4 @@
-import { ACTION_TYPES } from '../utils';
+import { ACTION_TYPES, INITIAL_STATE_FORM } from '../utils';
 
 export const formReducer = (state, action) => {
   if (action.type === ACTION_TYPES.NEXT_STEP) {
@@ -49,12 +49,10 @@ export const formReducer = (state, action) => {
 
   if (action.type === ACTION_TYPES.GO_BACK_STEP) {
     const stepName = action.payload.stepName;
-    console.log(stepName);
     const indexStep = state.findIndex(item => item.stepName === stepName);
 
     const indexOfPrevStep = indexStep !== -1 && indexStep !== 0 ? indexStep - 1 : 0;
 
-    console.log({ indexStep, indexOfPrevStep });
     const newState = state.map((item, index) => {
       return index === indexOfPrevStep
         ? { ...item, isCurrentStep: true }
@@ -62,6 +60,23 @@ export const formReducer = (state, action) => {
     });
 
     return newState;
+  }
+
+  if (action.type === ACTION_TYPES.UNCHECK_FIELDS) {
+    const lastFIeldIndex = state.length - 1;
+
+    const newState = state.map((item, index) => {
+      if (index === lastFIeldIndex) {
+        return { ...item, isChecked: false, isCurrentStep: true };
+      }
+      return item;
+    });
+
+    return newState;
+  }
+
+  if (action.type === ACTION_TYPES.CONFIRM_FORM) {
+    return [...INITIAL_STATE_FORM];
   }
   return state;
 };
