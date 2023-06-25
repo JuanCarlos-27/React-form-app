@@ -71,22 +71,16 @@ const INITIAL_STATE = [
     ]
   },
   {
-    stepName: 'Contraseña',
-    cardTitle: 'Ingresa tu contraseña',
+    stepName: 'Fecha',
+    cardTitle: 'Seleccione su fecha de nacimiento',
     isCurrentStep: false,
     isBlocked: true,
     isChecked: false,
     fields: [
       {
-        name: 'password',
-        placeholder: 'Contraseña',
-        type: 'password',
-        value: ''
-      },
-      {
-        name: 'confirmPassword',
-        placeholder: 'Confirmación constraseña',
-        type: 'password',
+        name: 'bithDate',
+        placeholder: 'Fecha de nacimiento',
+        type: 'date',
         value: ''
       }
     ]

@@ -7,10 +7,14 @@ export default function useForm () {
   // TODO: crear metodo para traer la info
   //
   //
+  const getResumeInformation = () => {
+    return formState.map(item => item.fields).flat();
+  };
 
+  getResumeInformation();
   const allFieldsChecked = () => {
     return formState.every(item => item.isChecked);
   };
 
-  return { formState, dispatch, allFieldsChecked };
+  return { formState, dispatch, allFieldsChecked, getResumeInformation };
 }

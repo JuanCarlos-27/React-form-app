@@ -4,7 +4,7 @@ import useForm from './hooks/useForm';
 import FormModal from './components/FormModal';
 
 function App () {
-  const { formState, allFieldsChecked } = useForm();
+  const { formState, allFieldsChecked, getResumeInformation } = useForm();
 
   const formIsReady = allFieldsChecked();
 
@@ -26,7 +26,7 @@ function App () {
         })}
       </main>
 
-      {formIsReady && <FormModal />}
+      {formIsReady && <FormModal dataResume={getResumeInformation()} />}
     </>
   );
 }
