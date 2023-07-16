@@ -2,6 +2,9 @@
 @use "./input" as i;
 @use "./button" as b;
 
+@include i.input();
+@include b.button(var.$btn-back-bg, var.$btn-bg-color);
+
 .card-form {
   display: flex;
   flex-direction: column;
@@ -16,7 +19,6 @@
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-    @include i.input();
 
     .input-group {
       display: flex;
@@ -35,7 +37,6 @@
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-    @include b.button(var.$btn-back-bg, var.$btn-bg-color);
   }
 }
 

@@ -1,3 +1,7 @@
+import React from "react";
+import { FormProvider } from "../src/context/form";
+import { Formik, FormikProvider } from "formik";
+
 /** @type { import('@storybook/react').Preview } */
 const preview = {
   parameters: {
@@ -10,5 +14,15 @@ const preview = {
     },
   },
 };
+
+export const decorators = [
+  (Story) => (
+    <FormProvider>
+      <Formik>
+        <Story />
+      </Formik>
+    </FormProvider>
+  ),
+];
 
 export default preview;

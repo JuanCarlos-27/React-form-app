@@ -1,39 +1,27 @@
-import { Button } from './Button';
+import Button from '../components/Button';
+import '../styles/index.scss';
 
-// More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 export default {
-  title: 'Example/Button',
-  component: Button,
-  tags: ['autodocs'],
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+    title: 'Components/Button',
+    component: Button,
+    tags: ['autodocs'],
 };
 
-// More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Primary = {
-  args: {
-    primary: true,
-    label: 'Button',
-  },
-};
+    args: {
+        type: 'submit',
+        children: 'Submit',
+        background: '#0084ff',
+        color: '#fff',
+    }
+}
 
 export const Secondary = {
-  args: {
-    label: 'Button',
-  },
-};
+    args: {
+        type: 'button',
+        children: 'Cancel',
+        background: '#585858',
+        color: '#fff',
+    }
+}
 
-export const Large = {
-  args: {
-    size: 'large',
-    label: 'Button',
-  },
-};
-
-export const Small = {
-  args: {
-    size: 'small',
-    label: 'Button',
-  },
-};

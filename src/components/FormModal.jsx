@@ -2,6 +2,8 @@ import { ACTION_TYPES } from '../utils';
 import { toast } from 'sonner';
 import confetti from 'canvas-confetti';
 import useForm from '../hooks/useForm';
+import PropTypes from 'prop-types';
+import Button from './Button';
 
 export default function FormModal ({ dataResume, onCancel }) {
   const { dispatch } = useForm();
@@ -29,14 +31,18 @@ export default function FormModal ({ dataResume, onCancel }) {
           })}
         </div>
         <div className='modal-buttons'>
-          <button type='button' onClick={() => onConfirm()}>
-            Si, confirmar
-          </button>
-          <button type='button' onClick={() => onCancel()}>
-            Cancelar
-          </button>
+          <Button onClick={onConfirm}>Si, confirmar</Button>
+          <Button onClick={onCancel}>Cancelar</Button>
         </div>
       </div>
     </div>
   );
+}
+
+
+FormModal.propTypes = {
+  /** Datos del formulario */
+  dataResume: PropTypes.array,
+  /** Función para cancelar el envío del formulario */
+  onCancel: PropTypes.func,
 }

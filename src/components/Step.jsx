@@ -1,6 +1,7 @@
 import useForm from '../hooks/useForm';
 import { ACTION_TYPES } from '../utils';
 import { CheckIcon, LockIcon } from './Icons';
+import PropTypes from 'prop-types';
 
 export default function Step ({
   stepLabel,
@@ -29,3 +30,22 @@ export default function Step ({
     </div>
   );
 }
+
+
+Step.propTypes = {
+  /** Nombre del paso */
+  stepLabel: PropTypes.string,
+  /** Indica si el paso es el actual */
+  isCurrentStep: PropTypes.bool,
+  /** Indica si el paso está bloqueado */
+  isBlockedStep: PropTypes.bool,
+  /** Indica si el paso está completado */
+  isChecked: PropTypes.bool,
+};
+
+Step.defaultProps = {
+  stepLabel: 'Paso 1',
+  isCurrentStep: true,
+  isBlockedStep: false,
+  isChecked: false,
+};

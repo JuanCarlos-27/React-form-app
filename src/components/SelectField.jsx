@@ -1,5 +1,6 @@
 import { Field } from 'formik';
 import useCountries from '../hooks/useCountries';
+import PropTypes from 'prop-types';
 
 export default function SelectField ({ name }) {
   const { countries } = useCountries();
@@ -14,4 +15,8 @@ export default function SelectField ({ name }) {
       ))}
     </Field>
   );
+}
+
+SelectField.propTypes = {
+  name: PropTypes.string
 }
